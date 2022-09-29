@@ -5,7 +5,7 @@
 function dar_bienvenida($nombre) {
 echo "¡Bienvenido/a, " . $nombre . "!";
 }
-dar_bienvenida("Ken Follet");
+dar_bienvenida("Joaquin Phoenix");
 ?>
 </body>
 </html>
