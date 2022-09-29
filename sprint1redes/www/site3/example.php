@@ -2,7 +2,7 @@
 <body>
 <h1>El ganador es...</h1>
 <?php
-$NOMBRE = "Jaime";
+$NOMBRE = "Joker";
 echo $NOMBRE;
 ?>
 </body>
