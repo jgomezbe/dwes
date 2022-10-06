@@ -36,7 +36,8 @@ td{
 	//tr td
 	echo '<tr>';
 
-	echo '<td><a href="detail.php?id=<id>">'.$row[0].'</a></td>';
+	echo '<td><a href="/detail.php?id='.$row[0];
+	echo '">'.$row[0].'</a></td>';
 
 	echo '<td>'.$row[1].'</td>';
 
