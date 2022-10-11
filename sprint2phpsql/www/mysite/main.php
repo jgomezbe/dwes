@@ -22,7 +22,7 @@ td{
 	$query = 'SELECT * FROM tLibros';
 	$result = mysqli_query($db,$query) or die ('Query error');
 	//Recorrer el resultado
-	//TABLA XDb
+
 	echo'<table>
 	
 	<tr>

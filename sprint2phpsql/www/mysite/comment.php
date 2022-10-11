@@ -7,7 +7,8 @@
 	$libro_id=$_POST['libro_id'];
 	$comentario=$S_POST['new_comment'];
 
-	$query = "INSERT INTO tComentarios(comentario,libro_id,usuario_id) values ('".$comentario."',".$libro_id.",NULL)";
+	$query = "INSERT INTO tComentarios(comentario,libro_id,usuario_id)
+ values ('".$comentario."',".$libro_id.",NULL)";
 	
 	mysqli_query($db,$query) or die ('Error');
 	
@@ -15,7 +16,7 @@
 	echo mysqli_insert_id($db);
 	echo " añadido</p>";
 	
-	echo "<a href='/detail.php?libro_id=".$libro_id."'>Volver</a>";
+	echo "<a href='/detail.php?id=".$libro_id."'>Volver</a>";
 	mysqli_close($db);
 	?>
 	</body>
