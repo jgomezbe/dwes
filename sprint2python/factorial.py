@@ -1,7 +1,3 @@
-
-from tkinter import N
-
-
 def func_factorial(n):
        
     if n == 1:

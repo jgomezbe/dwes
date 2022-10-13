@@ -1,3 +1,4 @@
+
 n=int(input("Teclea un número: "))
 f=1
 while(n>0):
