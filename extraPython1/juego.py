@@ -110,16 +110,16 @@ while True:
     print("             El ordenador: ", jugada_ordenador)
     print()
 
-    turno += 1
-
     jugadas_humano.append(jugada_humano)
 
     if gana == "Humano":
+        turno += 1
         score_hu += 1
         ultimo_resultado = 1
         print("                     Ganaste.")
         print()
     elif gana == "Ordenador":
+        turno += 1
         score_pc += 1
         ultimo_resultado = 0
         print("                Ganó el ordenador.")
@@ -129,8 +129,8 @@ while True:
 
     input(" Pulsa cualquier tecla para continuar...")
 
-    if turno == 5:
-        grafico(score_hu, score_pc, turno)
+    if turno == 6:
+        grafico(score_hu, score_pc, 5)
         m1 = "FIN DE LA PARTIDA"
         if score_hu > score_pc:
             m2 = "  HAS GANADO"
@@ -145,5 +145,4 @@ while True:
         print()
         print()
         print()
-
         break
