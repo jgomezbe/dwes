@@ -6,9 +6,15 @@ $user = 'NULL';
 if (!empty($_SESSION['user_id'])) {
     $user = $_SESSION['user_id'];
 }
+<<<<<<< HEAD
 $pass_enviada = $_POST['f_password2'];
 $new_pass = $_POST['newpassword'];
 $new_pass_confirm = $_POST['confirmnewpassword'];
+=======
+$pass_enviada = $_POST['password'];
+$new_pass = $_POST['new_pass'];
+$new_pass_confirm = $_POST['new_pass_confirm'];
+>>>>>>> f7803327b4f32859dbec5adfe767455c49b2ab9c
 echo $user;
 $query = "SELECT contraseña FROM tUsuarios WHERE id = " . $user;
 
