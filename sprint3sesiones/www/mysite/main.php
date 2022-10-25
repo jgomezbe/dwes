@@ -48,9 +48,10 @@ td{
 </head>
 
 <body bgcolor="#EEFDEF">
-<h1> Conexión establecida</h1>
+<h1> Conexión establecida</h1> 
+<a href="/logout.php">Logout</a>
+<a href="/passchange.html">Cambiar su contraseña</a>
 <?php
-	//Lanzar una query
 	$query = 'SELECT * FROM tLibros';
 	$result = mysqli_query($db,$query) or die ('Query error');
 	//Recorrer el resultado
