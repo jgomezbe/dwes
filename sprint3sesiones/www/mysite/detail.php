@@ -39,6 +39,5 @@
 		<input type="hidden" name="libro_id" value="<?php echo $libro_id; ?>">
 		<input type="submit" value="Comentar">
 	</form>
-	<a href="/logout.php">Logout</a>
 	</body>
 	</html>
