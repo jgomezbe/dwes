@@ -24,10 +24,12 @@
 	<ul>
 	<?php
 	$query2= 'select * from tComentarios where libro_id='.$libro_id;
-	$result2= mysqli_query($db,$query2) or die ('Query error');
+	$query3 = 'SELECT tUsuarios.nombre FROM tUsuarios,tComentarios WHERE tUsuarios.id=usuario_id and libro_id='.$libro_id;
+	$result2= mysqli_query($db, $query2) or die('Query error 2');
+	$result3= mysqli_query($db,$query3) or die('Query error 3');
 	while ($row= mysqli_fetch_array($result2)){
 
-		echo'<li>'.$row['comentario'].' '.$row['fecha_comentario'].'</li>';
+		echo'<li>'.$row['comentario'].' '.$row['fecha_comentario']." ".$row2['nombre'].'</li>';
 	}
 	mysqli_close($db);
 	?>
