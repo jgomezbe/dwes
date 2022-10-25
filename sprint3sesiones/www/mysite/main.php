@@ -48,8 +48,8 @@ td{
 </head>
 
 <body bgcolor="#EEFDEF">
-	<a href="/logout.php">Logout</a>
-<h1> Conexión establecida</h1>
+	<h1> Conexión establecida</h1>
+<a href="/logout.php">Logout</a>
 <?php
 	//Lanzar una query
 	$query = 'SELECT * FROM tLibros';
