@@ -7,8 +7,8 @@ if (!empty($_SESSION['user_id'])) {
     $user = $_SESSION['user_id'];
 }
 $pass_enviada = $_POST['f_password2'];
-$new_pass = $_POST['new_pass'];
-$new_pass_confirm = $_POST['new_pass_confirm'];
+$new_pass = $_POST['newpassword'];
+$new_pass_confirm = $_POST['confirmnewpassword'];
 echo $user;
 $query = "SELECT contraseña FROM tUsuarios WHERE id = " . $user;
 
