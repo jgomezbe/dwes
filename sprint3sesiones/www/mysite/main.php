@@ -48,6 +48,7 @@ td{
 </head>
 
 <body bgcolor="#EEFDEF">
+	<a href="/logout.php">Logout</a>
 <h1> Conexión establecida</h1>
 <?php
 	//Lanzar una query
