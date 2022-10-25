@@ -1,32 +1,36 @@
- <?php
+<?php
+$db = mysqli_connect('localhost', 'root', '1234', 'mysitedb') or die('Fail');
+
 session_start();
+$user = 'NULL';
+if (!empty($_SESSION['user_id'])) {
+    $user = $_SESSION['user_id'];
+}
+$pass_enviada = $_POST['f_password2'];
+$new_pass = $_POST['new_pass'];
+$new_pass_confirm = $_POST['new_pass_confirm'];
+echo $user;
+$query = "SELECT contraseña FROM tUsuarios WHERE id = " . $user;
 
-        $email = $_POST['email'];
-        $password = $_POST['contraseña'];
-        $newpassword = $_POST['newpassword'];
-        $confirmnewpassword = $_POST['confirmnewpassword'];
-        $result = mysql_query("SELECT contraseña FROM tUsuarios WHERE 
-email='$email'");
-        if(!$result)
-        {
-        echo "El usuario que has introducido no existe";
-        }
-        else if($password!= mysql_result($result, 0))
-        {
-        echo "Has introducido una contraseña incorrecta";
-        }
-    else{
-        if($newpassword==$confirmnewpassword)
-        $sql=mysql_query("UPDATE tUsuarios SET contraseña='$newpassword' where 
+$result = mysqli_query($db, $query) or die('Query error');
 
- usuario_id='$username'");
-        if($sql)
-        {
-        echo "Felicidades, has cambiado tu contraseña correctamente.";
+if (mysqli_num_rows($result) > 0) {
+    $only_row = mysqli_fetch_array($result);
+    if ($only_row[0] == $pass_enviada) {
+        if ($new_pass_confirm == $new_pass) {
+            echo "$new_pass";
+            echo "$new_pass_confirm";
+
+            $query2 = "UPDATE tUsuarios SET contraseña = '" . $new_pass . "' where id =" . $user;
+            $result = mysqli_query($db, $query2) or die('Query error');
+
+            echo '<p>La contraseña se ha visto actualizada</p>';
+        } else {
+            echo '<p>Las nuevas contraseñas no coinciden</p>';
         }
-       else
-        {
-       echo "Las contraseñas no coinciden";
-       }
+    } else {
+        echo '<p>Contraseña incorrecta</p>';
     }
-      ?>
+} else {
+    echo '<p>Usuario no encontrado con ese email</p>';
+}
