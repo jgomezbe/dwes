@@ -1,7 +1,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+   <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("formulario").addEventListener('submit', checkForm); 
+});
 
+function checkForm(e) {
+  evento.preventDefault();
+  vareemail = document.getElementById('email').value;
+  if(email.length == 0) {
+    alert('El email no puede estar vacío');
+    return;
+  }
+  var contraseña = document.getElementById('contraseña').value;
+  if (contraseña.length < 4) {
+    alert('La contraseña introducida no es válida');
+    return;
+  }
+  this.submit();
+}
 </head>
 <body>
 <h1>Login</h1>
