@@ -27,19 +27,19 @@
 	$query3 = 'SELECT tUsuarios.nombre FROM tUsuarios,tComentarios WHERE tUsuarios.id=usuario_id and libro_id='.$libro_id;
 	$result2= mysqli_query($db, $query2) or die('Query error 2');
 	$result3= mysqli_query($db,$query3) or die('Query error 3');
-	while ($row= mysqli_fetch_array($result2)){
+    while ($row = mysqli_fetch_array($result2) and $row2=mysqli_fetch_array($result3)) {
 
 		echo'<li>'.$row['comentario'].' '.$row['fecha_comentario']." ".$row2['nombre'].'</li>';
 	}
 	mysqli_close($db);
 	?>
-	</ul>
+	
 	<p>Deja un nuevo comentario:</p>
 	<form action="/comment.php" method="post">
 		<textarea rows="4" cols="50" name="new_comment"></textarea><br>
-		<input type="hidden" name="libro_id" value="
-		<?php echo $libro_id; ?>">
+		<input type="hidden" name="libro_id" value="<?php echo $libro_id; ?>">
 		<input type="submit" value="Comentar">
-	</form>
+	</form> 
+	</ul>
 	</body>
 	</html>
