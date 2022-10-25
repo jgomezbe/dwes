@@ -6,7 +6,7 @@ $user = 'NULL';
 if (!empty($_SESSION['user_id'])) {
     $user = $_SESSION['user_id'];
 }
-$pass_enviada = $_POST['f_password2'];
+$pass_enviada = $_POST['password'];
 $new_pass = $_POST['new_pass'];
 $new_pass_confirm = $_POST['new_pass_confirm'];
 echo $user;
