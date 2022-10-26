@@ -86,6 +86,5 @@ td{
 
 	mysqli_close($db);
 ?>
-<a href="/passchange.html">Cambiar contraseña</a>
 </body>
 </html>
