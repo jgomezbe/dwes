@@ -1,6 +1,5 @@
 import random
 import os
-hiadadhiohiawdiad
 
 def dibujo(jugada):
     if jugada.capitalize() == "Piedra":
