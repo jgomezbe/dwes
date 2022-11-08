@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
+from datetime import date
 from .models import Tlibros,Tcomentarios
 import json
 def pagina_de_prueba(request):
@@ -34,7 +35,7 @@ def devolver_libros_por_id (request, id_solicitado):
 	        'nombre':libro.nombre,
 	        'fecha':libro.anno_publicacion,
         	'comentarios':lista_comentarios,
-			'foto':libro.url_imagen
+		'foto':libro.url_imagen
 	}
 	return JsonResponse(resultado,json_dumps_params={'ensure_ascii':False})
 @csrf_exempt
@@ -46,5 +47,6 @@ def guardar_comentario(request,libro_id):
 	comentario=Tcomentarios()
 	comentario.comentario=json_peticion['nuevo_comentario']
 	comentario.libro=Tlibros.objects.get(id= libro_id)
+	comentario.fecha_comentario=date.today()
 	comentario.save()
 	return JsonResponse( {"status":"ok"})
