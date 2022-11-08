@@ -1,0 +1,14 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+
+def pagina_de_prueba(request):
+	return HttpResponse("<h1>Hola caracola</h1>");
+def devolver_libros(request):
+	lista = tLibros.objects.all();
+respuesta_final = []
+for fila_sql in lista:
+diccionario = {}
+diccionario['id'] = fila_sql.id
+dicciona	rio['titulo'] = fila_sql.titulo
+	diccionario['fecha'] = fila_sql.año
+	respuesta_final.append(objeto_json)	

@@ -60,7 +60,6 @@ if (!empty($_SESSION['user_id'])) {
 </head>
 
 <body bgcolor="#EEFDEF">
-	<h1> Conexión establecida</h1>
 	<a href="/logout.php">Logout</a>
 	<a href="/passchange.html">Cambiar su contraseña</a>
 	<form action="search.php" method="$_GET">
@@ -69,7 +68,7 @@ if (!empty($_SESSION['user_id'])) {
 	</form>
 	<?php
     $search = $_GET['search'];
-	$query = 'SELECT * FROM tLibros where id like "%$search%"';
+	$query = 'SELECT * FROM tLibros where nombre like "%'.$search.'%" or anno_publicacion like "%'.$search.'%" ';
 	$result = mysqli_query($db, $query) or die('Query error');
 	//Recorrer el resultado
 
@@ -103,7 +102,7 @@ if (!empty($_SESSION['user_id'])) {
 
 	mysqli_close($db);
 	?>
-	<a href="/passchange.html">Cambiar contraseña</a>
+	<a href="/main.php">Volver al menú</a>
 </body>
 
 </html>
