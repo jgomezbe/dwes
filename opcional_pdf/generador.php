@@ -27,6 +27,7 @@ class PDF extends FPDF{
 }
 
 $pdf = new PDF();
+
 $pdf->AliasNbPages();
 $pdf->AddPage('L');
 $pdf->SetFont('Times','B',16);
@@ -35,9 +36,11 @@ $pdf->Cell(0,10,'Desarrollador Web en Entorno Servidor ',0,0,'C');
 $pdf->Cell(-274,40,'El alumno '.' '.$name.' '.$surname.' se ha graduado en la asignatura de Desarrollo Web en Entorno Servidor',0,0,'C');
 $pdf->Cell(-274,60,'a fecha'.' '.date('d/m/Y'),0,1);
 $pdf->Cell(274,60,'Firma del alumno ',0,1,'C');
-$pdf->Cell($name.' '.$surname,1,1,'C');
-$pdf->Line(10,50,290,50);
-$pdf->Image('firma.png',125,160,40);
+$pdf->SetXY(($pdf->GetPageWidth()/2 )- ($pdf->GetStringWidth($name.' '.$surname)/2),160);
+$pdf->Cell($pdf->GetStringWidth($name.' '.$surname),10,$name.' '.$surname,0,1,'C');
+
+$pdf->SetXY(87+$pdf->GetStringWidth($name.' '.$surname),90);
+$pdf->Image('firma.png', 135, 140, -300);
 $pdf->Output();
 
 ?>
